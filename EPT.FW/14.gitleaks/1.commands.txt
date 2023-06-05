@@ -1,0 +1,10 @@
+## gitleaks - a tool for detecting hardcoded secrets like passwords, api keys, and tokens in git repos.
+
+# If an organization has GitHub repos you can download each repo and analyze it for secrets.
+
+# Scan a GitHub repo 
+
+./gitleaks-linux-amd64 --repo-url=https://github.com/my-insecure/repo -v
+
+
+

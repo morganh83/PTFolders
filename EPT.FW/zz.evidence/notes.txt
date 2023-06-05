@@ -1,0 +1,28 @@
+## Make sure to take detailed notes of the steps performed and screenshot your findings.
+
+Performed a Nmap Ping Sweep to discover live hosts on the external network. 
+
+(VHS Requested to stop touching 208.85.100.155 for the day)
+
+I extracted all live hosts and ran a service scan against them. 
+
+I attempted running multiple Full TCP scans, Top100 TCP Scans, Top 100 Stealth Scans, Scanning only the hosts with open ports discovered in the service scan, top100 UDP scans, and lastly a TCP stealth scan. 
+
+Discovered multiple hosts with open ports 80 and 443 as well as 53 on one of the hosts. 
+
+Rana an Eyewitness scan on all of my service scan results and discovered multiple login pages. 
+
+Ran all of the sites through DNSDumpster to enumerate subdomains. 
+
+USed multiple OSINT tools to discover as much as I could about ValleyHealth. (i.e, Phonebook.cz, ttheHarvester, and Spiderfoot)
+
+Successfully discovered emails and names of 2000 staff members. 
+
+Ran searchsploit and google searches against any of their active services running on 80/443 and discovered 2 hosts were vulnerable and needed to be patched. 
+
+Started doing DNS Recon on any host with open ports. 
+
+
+
+
+

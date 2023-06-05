@@ -1,0 +1,40 @@
+## Nmap - nmap is used to discover hosts and services on a computer network by sending packets and analyzing the responses.
+
+# Put your scope into the targets.txt file in a "nmap friendly" format.
+
+Ping Scan
+-----
+# Conduct a ping scan of your scope with the command below.
+
+nmap -sn -vv --open -iL targets.txt -oA ping.scan
+
+# The syntax above will take the targets.txt file and do a ping scan for live hosts and will output the results to 3 file types.
+
+
+Extract Live Hosts
+-----
+# Use the command below to extract the live hosts that were discovered from the Nmap ping scan and put them into a file.
+
+cat ping.scan.gnmap | grep Host | cut -d ' ' -f 2 > live.hosts.txt
+
+
+Service Scan
+-----
+# Conduct a service scan with the top 1000 TCP ports on the hosts from the ping scan results.
+
+nmap -A -vv --open -iL live.hosts.txt -oA service.scan
+
+
+Full TCP Port Scan
+-----
+# Conduct a full TCP port scan on hosts from the ping scan results.
+
+nmap -A -vv --open -p- -iL live.hosts.txt -oA full.tcp.scan
+
+
+
+**Pro Tips**
+Use searchsploit to identify vulnerabilities of application versions that were discovered during scanning.
+Use the Zenmap GUI to open the .xml file that nmap created to review results more easily.
+Discover UDP ports with the -sU option
+Have scans run in the background while you manually investigate.

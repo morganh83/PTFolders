@@ -1,0 +1,17 @@
+## dirb - is a web content scanner.
+
+
+Scan for hidden web content (if websites are discovered)
+-----
+# Scan for hidden web content with default settings and output to a .txt file.
+
+dirb https://<website> -o dirb.<website>.txt
+
+# The syntax above will scan the website for hidden content and output it to a text file with the name you give it. I suggest using the domain name (dirb.domain.txt)
+
+
+
+**Pro Tips**
+Use the raft-medium-directories.txt file from the SecList repo. https://github.com/danielmiessler/SecLists.git
+SecLists/Discovery/Web-Content/raft-medium-directories.txt
+dirb https://<website> <raft-medium-directories.txt location> -o dirb.<website>.txt 

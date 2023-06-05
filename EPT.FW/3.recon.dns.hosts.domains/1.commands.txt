@@ -1,0 +1,25 @@
+## dnsrecon - a Python script that provides the ability to perform dns enumeration.
+
+## amass - performs network mapping of attack surfaces and external asset discovery.
+
+## spiderfoot - SpiderFoot automates OSINT for threat intelligence and mapping your attack surface.
+https://github.com/smicallef/spiderfoot?ref=d
+
+Information Gathering
+-----
+# Search Shodan
+
+# Perform AXFR (dns zone transfer) with standard enumeration
+
+dnsrecon -a -d <domain>
+
+# Perform subdomain lookup
+
+amass enum -d <domain>
+
+# Visit https://dnsdumpster.com/ and search for your domain to gather dns records
+
+# Use the SpiderFoot tool to search for numerous amounts of open-source information
+
+
+

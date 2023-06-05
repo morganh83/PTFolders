@@ -1,0 +1,14 @@
+## Nikto - command-line web vulnerability scanner.
+
+Web Host Scan
+-----
+# Conduct a ping scan of your scope with the command below.
+
+nikto -h <http(s)://website.com> -o nikto.<domain>.txt
+
+# The syntax above will also create an output txt file with your results.
+
+
+**Pro Tips**
+Use searchsploit to identify vulnerabilities of application versions that were discovered during scanning.
+Have scans run in the background while you manually investigate.

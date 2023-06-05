@@ -1,0 +1,20 @@
+## theHarvester - theHarvester is a tool that can be used for gathering information such as emails, sub-domains, hosts, employee names, open ports and banners from different public sources
+
+## pymeta - pymeta is a tool used to download (pdf,xls,xlsx,csv,docx,doc) files and extract metadate from them.
+https://github.com/m8r0wn/pymeta.git
+
+## spiderfoot - SpiderFoot automates OSINT for threat intelligence and mapping your attack surface.
+https://github.com/smicallef/spiderfoot?ref=d
+
+Information Gathering
+-----
+# Search public sources for emails, employee names, subdomains using theHarvester
+
+theHarvester -d <domain> -b bing,crtsh,dnsdumpster,google,linkedin,sublist3r,zoomeye -f theHarvester
+
+# Visit https://phonebook.cz and search for your domain to gather emails
+
+# Use the SpiderFoot tool to search for numerous amounts of open-source information
+
+
+

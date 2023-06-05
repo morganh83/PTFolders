@@ -1,0 +1,15 @@
+# Active Directory
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Active%20Directory%20Attack.md
+
+# Token Impersonation
+There are many methods availble for token manipulation. For instance if you land on a system where you are nt authority/network services. Escalating to a system or administrator through hot, rotten, remote, juicy potato privescalation paths. 
+https://decoder.cloud/2020/05/04/from-network-service-to-system/
+https://github.com/itm4n/FullPowers
+
+# Hacktricks
+https://book.hacktricks.xyz/
+
+# List of internal emails/possible usernames
+https://phonebook.cz/
+
+

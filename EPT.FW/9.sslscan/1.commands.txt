@@ -1,0 +1,14 @@
+## sslscan - a tool to scan TLS/SSL configuration.
+
+# Put your hosts into the domains.txt file in a domain.com or IP address format.
+
+
+SSLScan
+-----
+# Conduct an SSL/TLS scan of the hosts in the domains.txt file and output to folders.
+
+./sslscan.sh
+
+# The syntax above will take the domain.txt file, scan SSL/TLS configuration and output the results to a file.
+
+

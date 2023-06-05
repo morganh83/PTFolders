@@ -1,0 +1,74 @@
+## Metasploit - is a penetration testing framework
+
+# Metasploit has an abundance of scripts that can help enumerate systems that have open ports. Below are a list of common ports and the associated Metasploit module to run agaisnt the host.
+
+# You can review the information in each module by running the command 'info' command in Metasploit. 
+# (Example: msf6> info auxiliary/scanner/ssh/ssh_version)
+
+# There are plenty of other modules besides these. Make sure to use Metasploit to search for other modules pertaining to your engagement.
+
+Port 21 - FTP
+-----
+auxiliary/scanner/ftp/anonymous
+auxiliary/scanner/ftp/ftp_login
+auxiliary/scanner/ftp/ftp_version
+
+Port 22 - SSH
+-----
+auxiliary/scanner/ssh/ssh_enumusers
+auxiliary/scanner/ssh/ssh_version
+
+Port 23 - Telnet
+-----
+auxiliary/scanner/telnet/telnet_login
+auxiliary/scanner/telnet/telnet_version
+
+Port 25 - SMTP
+-----
+
+Port 69 - TFTP
+-----
+auxiliary/scanner/snmp/cisco_config_tftp
+auxiliary/scanner/tftp/tftpbrute
+
+Port 80 - HTTP
+-----
+
+Port 443 - HTTPS
+-----
+exploit/linux/http/f5_bigip_tmui_rce
+
+Port 445 - SMB
+-----
+auxiliary/scanner/smb/smb_ms17_010
+auxiliary/admin/smb/list_directory
+auxiliary/scanner/smb/smb_login
+auxiliary/scanner/smb/smb_enumshares
+auxiliary/scanner/smb/smb_enumusers
+auxiliary/scanner/smb/smb_version
+
+Port 1433 - MSSQL
+-----
+auxiliary/scanner/mssql/mssql_ping
+auxiliary/admin/mssql/mssql_enum
+auxiliary/scanner/mssql/mssql_login
+auxiliary/admin/mssql/mssql_enum_domain_accounts
+auxiliary/admin/mssql/mssql_exec
+
+Port 3306 - MySQL
+-----
+auxiliary/scanner/mysql/mysql_version
+auxiliary/admin/mysql/mysql_enum
+auxiliary/scanner/mysql/mysql_login
+auxiliary/scanner/mysql/mysql_authbypass_hashdump
+
+Port 3389 - Remote Desktop (RDP)
+-----
+
+
+Port 4786 - Cisco Smart Install
+-----
+auxiliary/scanner/misc/cisco_smart_install
+
+Port 8080
+-----

@@ -1,0 +1,20 @@
+# Use the following steps to enumerate hosts, ports,services, and screenshots.
+
+1. Fill in the subnets.txt file with Nmap friendly IP address ranges. If needed, add exclusions to the exclude.txt file.
+
+2. Enter 1.pingsweep directory and run the script 'pingsweep.sh'. Results will populate in 'hosts' folder.
+
+3. Enter 2.nmap directory and run the script 'nmap.sh'. Results will populate in the 'hosts' folder.
+
+4. Enter the 3.msf-script directory and run the Metasploit script 'msf-enumeration.sh'. Results will populate when script finishes and will output in results.txt file.
+
+5. Enter the 4.snmp directory and run the 'msf-snmp-enumeration.sh' script. Results will populate in that folder.
+
+6. Enter the 5.gowitness directory and then run the script '/gowitness/gowitness.sh'. Results will populate in the 'screenshots' folder.
+
+7. Enter the enum4linux directory and run the 'enum4linux.sh' script. Results will populate in that folder.
+
+
+##
+Review MSSQL database names and attempt to find default credentials. Use Metasploit's MSSQL xp_cmdshell to execute commands.
+Use DBeaver to connect directly to MSSQL instances. There is an SSH tunnel feature that can reach boxes behind firewalls.

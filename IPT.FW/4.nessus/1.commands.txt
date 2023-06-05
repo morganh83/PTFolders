@@ -1,0 +1,5 @@
+# Import the '/opt/ipt/3.enumeration/hosts/all_hosts.txt' into Nessus and start the scan.
+
+# Place *.nessus files in this directory and run the following command to merge Nessus scans:
+python nessus.merge.py .
+

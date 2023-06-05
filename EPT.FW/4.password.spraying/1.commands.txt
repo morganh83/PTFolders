@@ -1,0 +1,22 @@
+## TREVORspray - TREVORspray is a featureful Microsoft 365 password sprayer based on MSOLSpray
+https://github.com/blacklanternsecurity/TREVORspray
+
+0365 Password Spraying
+-----
+# Find token_endpoint for domain
+
+python3 trevorspray.py --recon <domain.com>
+
+# Spray for passwords against 0365 endpoint
+
+python3 trevorspray.py -e email.list.txt -p Summer21 --url <token_endpoint_url> --delay 37
+
+
+Web Login Password Spraying/Brute Force with Burp
+-----
+https://portswigger.net/support/using-burp-to-brute-force-a-login-page
+
+
+OWA/EWS Password Spraying
+-----
+https://hunter2.gitbook.io/darthsidious/initial-access/password-spraying

@@ -1,0 +1,16 @@
+## wpscan - a black box WordPress vulnerability scanner that can be used to scan remote WordPress installations to find security issues.
+
+# A WordPress site can be identified through Burp Suite by viewing the folder structure of the website. If the wp-admin, wp-content, and wp-includes folders are present within the site map in Burp Suite, the website is managed by WordPress.
+
+# The WordPress admin/user login page is typically located at (https://site.com/wp-admin)
+
+# Scan a Wordpress website using the wpscanner.sh script
+
+./wpscanner.sh
+
+
+
+**Pro Tips**
+Make sure to register for an API key at https://wpscan.com and put it into the wpscanner.sh script!
+The standalone wpscan tool (not this script) can be used for password cracking too.
+

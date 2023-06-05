@@ -1,0 +1,22 @@
+## manspider - Crawl SMB shares for juicy information
+https://github.com/blacklanternsecurity/MANSPIDER.git
+
+Find shares using crackmapexec
+-----
+# Use a username and password/hash to find shares on hosts
+crackmapexec smb <subnet> -u <username> -p <password> -d <domain> --shares
+
+# Finds files with juicy information in xlsx files on shares using manspider
+manspider <hosts> -c password -e xlsx -d <domain> -u <user> -p <password>
+
+# manspider examples
+    Example 1: Search the network for filenames that may contain creds
+    $ manspider 192.168.0.0/24 -f passw user admin account network login logon cred -d evilcorp -u bob -p Passw0rd
+    Example 2: Search for XLSX files containing "password"
+    $ manspider share.evilcorp.local -c password -e xlsx -d evilcorp -u bob -p Passw0rd
+    Example 3: Search for interesting file extensions
+    $ manspider share.evilcorp.local -e bat com vbs ps1 psd1 psm1 pem key rsa pub reg txt cfg conf config -d evilcorp -u bob -p Passw0rd
+    Example 4: Search for finance-related files
+    $ manspider share.evilcorp.local --dirnames bank financ payable payment reconcil remit voucher vendor eft swift -f '[0-9]{5,}' -d evilcorp -u bob -p Passw0rd
+
+

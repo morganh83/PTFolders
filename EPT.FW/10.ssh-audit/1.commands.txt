@@ -1,0 +1,13 @@
+## ssh-audit - a tool for SSH server & client configuration auditing
+Install: apt install ssh-audit -y
+
+SSH server scanning
+-----
+# Scan an SSH service for vulnerabilities and weak configuration.
+
+ssh-audit <host>
+
+
+
+**Pro Tips**
+You can use the -T flag to use a list of IP addresses or hostnames.

